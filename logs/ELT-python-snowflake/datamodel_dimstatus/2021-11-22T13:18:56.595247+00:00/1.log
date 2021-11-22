@@ -1,0 +1,111 @@
+[2021-11-22 13:20:17,507] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: ELT-python-snowflake.datamodel_dimstatus manual__2021-11-22T13:18:56.595247+00:00 [queued]>
+[2021-11-22 13:20:17,525] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: ELT-python-snowflake.datamodel_dimstatus manual__2021-11-22T13:18:56.595247+00:00 [queued]>
+[2021-11-22 13:20:17,526] {taskinstance.py:1241} INFO - 
+--------------------------------------------------------------------------------
+[2021-11-22 13:20:17,533] {taskinstance.py:1242} INFO - Starting attempt 1 of 1
+[2021-11-22 13:20:17,535] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2021-11-22 13:20:17,561] {taskinstance.py:1262} INFO - Executing <Task(BashOperator): datamodel_dimstatus> on 2021-11-22 13:18:56.595247+00:00
+[2021-11-22 13:20:17,570] {standard_task_runner.py:52} INFO - Started process 2293 to run task
+[2021-11-22 13:20:17,575] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'ELT-python-snowflake', 'datamodel_dimstatus', 'manual__2021-11-22T13:18:56.595247+00:00', '--job-id', '70', '--raw', '--subdir', 'DAGS_FOLDER/ELT-python-snowflake.py', '--cfg-path', '/tmp/tmpg_7_u0d3', '--error-file', '/tmp/tmpqurx5uqr']
+[2021-11-22 13:20:17,578] {standard_task_runner.py:77} INFO - Job 70: Subtask datamodel_dimstatus
+[2021-11-22 13:20:17,678] {logging_mixin.py:109} INFO - Running <TaskInstance: ELT-python-snowflake.datamodel_dimstatus manual__2021-11-22T13:18:56.595247+00:00 [running]> on host bd3f5d3b0fb3
+[2021-11-22 13:20:17,780] {taskinstance.py:1429} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=ELT-python-snowflake
+AIRFLOW_CTX_TASK_ID=datamodel_dimstatus
+AIRFLOW_CTX_EXECUTION_DATE=2021-11-22T13:18:56.595247+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-11-22T13:18:56.595247+00:00
+[2021-11-22 13:20:17,782] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2021-11-22 13:20:17,785] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'python3 /opt/***/elt/user-orders/transform-snowflake/6_enrich_to_datamodel/extract_to_dimstatus.py']
+[2021-11-22 13:20:17,818] {subprocess.py:85} INFO - Output:
+[2021-11-22 13:20:23,651] {subprocess.py:89} INFO - WARNING: An illegal reflective access operation has occurred
+[2021-11-22 13:20:23,652] {subprocess.py:89} INFO - WARNING: Illegal reflective access by org.apache.spark.unsafe.Platform (file:/home/***/.local/lib/python3.7/site-packages/pyspark/jars/spark-unsafe_2.12-3.1.1.jar) to constructor java.nio.DirectByteBuffer(long,int)
+[2021-11-22 13:20:23,653] {subprocess.py:89} INFO - WARNING: Please consider reporting this to the maintainers of org.apache.spark.unsafe.Platform
+[2021-11-22 13:20:23,654] {subprocess.py:89} INFO - WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+[2021-11-22 13:20:23,655] {subprocess.py:89} INFO - WARNING: All illegal access operations will be denied in a future release
+[2021-11-22 13:20:24,645] {subprocess.py:89} INFO - 21/11/22 13:20:24 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2021-11-22 13:20:25,300] {subprocess.py:89} INFO - Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+[2021-11-22 13:20:25,302] {subprocess.py:89} INFO - Setting default log level to "WARN".
+[2021-11-22 13:20:25,302] {subprocess.py:89} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2021-11-22 13:20:47,328] {subprocess.py:89} INFO - /home/***/.local/lib/python3.7/site-packages/snowflake/connector/options.py:97: UserWarning: You have an incompatible version of 'pyarrow' installed (4.0.1), please install a version that adheres to: 'pyarrow<5.1.0,>=5.0.0; extra == "pandas"'
+[2021-11-22 13:20:47,354] {subprocess.py:89} INFO -   _expected_pyarrow_version,
+[2021-11-22 13:20:47,363] {subprocess.py:89} INFO - ERROR:root:Exception while sending command.
+[2021-11-22 13:20:47,370] {subprocess.py:89} INFO - Traceback (most recent call last):
+[2021-11-22 13:20:47,387] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/py4j/java_gateway.py", line 1207, in send_command
+[2021-11-22 13:20:47,394] {subprocess.py:89} INFO -     raise Py4JNetworkError("Answer from Java side is empty")
+[2021-11-22 13:20:47,405] {subprocess.py:89} INFO - py4j.protocol.Py4JNetworkError: Answer from Java side is empty
+[2021-11-22 13:20:47,424] {subprocess.py:89} INFO - 
+[2021-11-22 13:20:47,427] {subprocess.py:89} INFO - During handling of the above exception, another exception occurred:
+[2021-11-22 13:20:47,434] {subprocess.py:89} INFO - 
+[2021-11-22 13:20:47,437] {subprocess.py:89} INFO - Traceback (most recent call last):
+[2021-11-22 13:20:47,443] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/py4j/java_gateway.py", line 1033, in send_command
+[2021-11-22 13:20:47,445] {subprocess.py:89} INFO -     response = connection.send_command(command)
+[2021-11-22 13:20:47,461] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/py4j/java_gateway.py", line 1212, in send_command
+[2021-11-22 13:20:47,465] {subprocess.py:89} INFO -     "Error while receiving", e, proto.ERROR_ON_RECEIVE)
+[2021-11-22 13:20:47,467] {subprocess.py:89} INFO - py4j.protocol.Py4JNetworkError: Error while receiving
+[2021-11-22 13:20:47,479] {subprocess.py:89} INFO - Traceback (most recent call last):
+[2021-11-22 13:20:47,495] {subprocess.py:89} INFO -   File "/opt/***/elt/user-orders/transform-snowflake/6_enrich_to_datamodel/extract_to_dimstatus.py", line 25, in <module>
+[2021-11-22 13:20:47,498] {subprocess.py:89} INFO -     app = SparkSession.builder.appName("myapp").getOrCreate()
+[2021-11-22 13:20:47,501] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/pyspark/sql/session.py", line 233, in getOrCreate
+[2021-11-22 13:20:47,532] {subprocess.py:89} INFO -     session._jsparkSession.sessionState().conf().setConfString(key, value)
+[2021-11-22 13:20:47,553] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/py4j/java_gateway.py", line 1305, in __call__
+[2021-11-22 13:20:47,575] {subprocess.py:89} INFO -     answer, self.gateway_client, self.target_id, self.name)
+[2021-11-22 13:20:47,587] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/pyspark/sql/utils.py", line 111, in deco
+[2021-11-22 13:20:47,588] {subprocess.py:89} INFO -     return f(*a, **kw)
+[2021-11-22 13:20:47,591] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/py4j/protocol.py", line 336, in get_return_value
+[2021-11-22 13:20:47,611] {subprocess.py:89} INFO -     format(target_id, ".", name))
+[2021-11-22 13:20:47,614] {subprocess.py:89} INFO - py4j.protocol.Py4JError: An error occurred while calling o27.sessionState
+[2021-11-22 13:20:48,400] {subprocess.py:89} INFO - ERROR:py4j.java_gateway:An error occurred while trying to connect to the Java server (127.0.0.1:39665)
+[2021-11-22 13:20:48,404] {subprocess.py:89} INFO - Traceback (most recent call last):
+[2021-11-22 13:20:48,409] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/py4j/java_gateway.py", line 977, in _get_connection
+[2021-11-22 13:20:48,413] {subprocess.py:89} INFO -     connection = self.deque.pop()
+[2021-11-22 13:20:48,420] {subprocess.py:89} INFO - IndexError: pop from an empty deque
+[2021-11-22 13:20:48,427] {subprocess.py:89} INFO - 
+[2021-11-22 13:20:48,430] {subprocess.py:89} INFO - During handling of the above exception, another exception occurred:
+[2021-11-22 13:20:48,435] {subprocess.py:89} INFO - 
+[2021-11-22 13:20:48,447] {subprocess.py:89} INFO - Traceback (most recent call last):
+[2021-11-22 13:20:48,455] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/py4j/java_gateway.py", line 1115, in start
+[2021-11-22 13:20:48,470] {subprocess.py:89} INFO -     self.socket.connect((self.address, self.port))
+[2021-11-22 13:20:48,478] {subprocess.py:89} INFO - ConnectionRefusedError: [Errno 111] Connection refused
+[2021-11-22 13:20:49,459] {subprocess.py:93} INFO - Command exited with return code 1
+[2021-11-22 13:20:49,617] {taskinstance.py:1703} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1332, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1458, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1514, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 188, in execute
+    f'Bash command failed. The command returned a non-zero exit code {result.exit_code}.'
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2021-11-22 13:20:49,777] {taskinstance.py:1280} INFO - Marking task as FAILED. dag_id=ELT-python-snowflake, task_id=datamodel_dimstatus, execution_date=20211122T131856, start_date=20211122T132017, end_date=20211122T132049
+[2021-11-22 13:20:49,852] {standard_task_runner.py:91} ERROR - Failed to execute job 70 for task datamodel_dimstatus
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/task/task_runner/standard_task_runner.py", line 85, in _start_by_fork
+    args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/cli_parser.py", line 48, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/cli.py", line 92, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 292, in task_run
+    _run_task_by_selected_method(args, dag, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 107, in _run_task_by_selected_method
+    _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 184, in _run_raw_task
+    error_file=args.error_file,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 70, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1332, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1458, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1514, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 188, in execute
+    f'Bash command failed. The command returned a non-zero exit code {result.exit_code}.'
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2021-11-22 13:20:49,949] {local_task_job.py:154} INFO - Task exited with return code 1
+[2021-11-22 13:20:50,054] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,381 @@
+[2021-11-22 13:16:39,990] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: ELT-python-snowflake.Extract manual__2021-11-22T13:16:39.058478+00:00 [queued]>
+[2021-11-22 13:16:40,008] {taskinstance.py:1035} INFO - Dependencies all met for <TaskInstance: ELT-python-snowflake.Extract manual__2021-11-22T13:16:39.058478+00:00 [queued]>
+[2021-11-22 13:16:40,009] {taskinstance.py:1241} INFO - 
+--------------------------------------------------------------------------------
+[2021-11-22 13:16:40,010] {taskinstance.py:1242} INFO - Starting attempt 1 of 1
+[2021-11-22 13:16:40,011] {taskinstance.py:1243} INFO - 
+--------------------------------------------------------------------------------
+[2021-11-22 13:16:40,027] {taskinstance.py:1262} INFO - Executing <Task(BashOperator): Extract> on 2021-11-22 13:16:39.058478+00:00
+[2021-11-22 13:16:40,035] {standard_task_runner.py:52} INFO - Started process 1436 to run task
+[2021-11-22 13:16:40,044] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'ELT-python-snowflake', 'Extract', 'manual__2021-11-22T13:16:39.058478+00:00', '--job-id', '65', '--raw', '--subdir', 'DAGS_FOLDER/ELT-python-snowflake.py', '--cfg-path', '/tmp/tmpjtmb8s1k', '--error-file', '/tmp/tmp76yd6ex2']
+[2021-11-22 13:16:40,047] {standard_task_runner.py:77} INFO - Job 65: Subtask Extract
+[2021-11-22 13:16:40,152] {logging_mixin.py:109} INFO - Running <TaskInstance: ELT-python-snowflake.Extract manual__2021-11-22T13:16:39.058478+00:00 [running]> on host bd3f5d3b0fb3
+[2021-11-22 13:16:40,228] {taskinstance.py:1429} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=ELT-python-snowflake
+AIRFLOW_CTX_TASK_ID=Extract
+AIRFLOW_CTX_EXECUTION_DATE=2021-11-22T13:16:39.058478+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-11-22T13:16:39.058478+00:00
+[2021-11-22 13:16:40,231] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2021-11-22 13:16:40,233] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'python3 /opt/***/elt/user-orders/extract-load/mysql_to_s3.py']
+[2021-11-22 13:16:40,248] {subprocess.py:85} INFO - Output:
+[2021-11-22 13:16:44,144] {subprocess.py:89} INFO - WARNING: An illegal reflective access operation has occurred
+[2021-11-22 13:16:44,145] {subprocess.py:89} INFO - WARNING: Illegal reflective access by org.apache.spark.unsafe.Platform (file:/home/***/.local/lib/python3.7/site-packages/pyspark/jars/spark-unsafe_2.12-3.1.1.jar) to constructor java.nio.DirectByteBuffer(long,int)
+[2021-11-22 13:16:44,146] {subprocess.py:89} INFO - WARNING: Please consider reporting this to the maintainers of org.apache.spark.unsafe.Platform
+[2021-11-22 13:16:44,147] {subprocess.py:89} INFO - WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+[2021-11-22 13:16:44,148] {subprocess.py:89} INFO - WARNING: All illegal access operations will be denied in a future release
+[2021-11-22 13:16:44,903] {subprocess.py:89} INFO - 21/11/22 13:16:44 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2021-11-22 13:16:45,702] {subprocess.py:89} INFO - Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+[2021-11-22 13:16:45,704] {subprocess.py:89} INFO - Setting default log level to "WARN".
+[2021-11-22 13:16:45,708] {subprocess.py:89} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2021-11-22 13:16:54,295] {subprocess.py:89} INFO - Mon Nov 22 13:16:54 UTC 2021 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+[2021-11-22 13:16:54,989] {subprocess.py:89} INFO - Mon Nov 22 13:16:54 UTC 2021 WARN: Caught while disconnecting...
+[2021-11-22 13:16:54,991] {subprocess.py:89} INFO - 
+[2021-11-22 13:16:54,992] {subprocess.py:89} INFO - EXCEPTION STACK TRACE:
+[2021-11-22 13:16:54,993] {subprocess.py:89} INFO - 
+[2021-11-22 13:16:54,994] {subprocess.py:89} INFO - 
+[2021-11-22 13:16:54,995] {subprocess.py:89} INFO - 
+[2021-11-22 13:16:54,996] {subprocess.py:89} INFO - ** BEGIN NESTED EXCEPTION **
+[2021-11-22 13:16:54,997] {subprocess.py:89} INFO - 
+[2021-11-22 13:16:54,998] {subprocess.py:89} INFO - javax.net.ssl.SSLException
+[2021-11-22 13:16:54,999] {subprocess.py:89} INFO - MESSAGE: closing inbound before receiving peer's close_notify
+[2021-11-22 13:16:55,001] {subprocess.py:89} INFO - 
+[2021-11-22 13:16:55,003] {subprocess.py:89} INFO - STACKTRACE:
+[2021-11-22 13:16:55,004] {subprocess.py:89} INFO - 
+[2021-11-22 13:16:55,006] {subprocess.py:89} INFO - javax.net.ssl.SSLException: closing inbound before receiving peer's close_notify
+[2021-11-22 13:16:55,007] {subprocess.py:89} INFO - 	at java.base/sun.security.ssl.SSLSocketImpl.shutdownInput(SSLSocketImpl.java:763)
+[2021-11-22 13:16:55,008] {subprocess.py:89} INFO - 	at java.base/sun.security.ssl.SSLSocketImpl.shutdownInput(SSLSocketImpl.java:742)
+[2021-11-22 13:16:55,009] {subprocess.py:89} INFO - 	at com.mysql.cj.protocol.a.NativeProtocol.quit(NativeProtocol.java:1313)
+[2021-11-22 13:16:55,010] {subprocess.py:89} INFO - 	at com.mysql.cj.NativeSession.quit(NativeSession.java:182)
+[2021-11-22 13:16:55,011] {subprocess.py:89} INFO - 	at com.mysql.cj.jdbc.ConnectionImpl.realClose(ConnectionImpl.java:1743)
+[2021-11-22 13:16:55,012] {subprocess.py:89} INFO - 	at com.mysql.cj.jdbc.ConnectionImpl.close(ConnectionImpl.java:717)
+[2021-11-22 13:16:55,013] {subprocess.py:89} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.JDBCRDD$.resolveTable(JDBCRDD.scala:71)
+[2021-11-22 13:16:55,015] {subprocess.py:89} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.JDBCRelation$.getSchema(JDBCRelation.scala:226)
+[2021-11-22 13:16:55,016] {subprocess.py:89} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.JdbcRelationProvider.createRelation(JdbcRelationProvider.scala:35)
+[2021-11-22 13:16:55,017] {subprocess.py:89} INFO - 	at org.apache.spark.sql.execution.datasources.DataSource.resolveRelation(DataSource.scala:354)
+[2021-11-22 13:16:55,017] {subprocess.py:89} INFO - 	at org.apache.spark.sql.DataFrameReader.loadV1Source(DataFrameReader.scala:326)
+[2021-11-22 13:16:55,018] {subprocess.py:89} INFO - 	at org.apache.spark.sql.DataFrameReader.$anonfun$load$3(DataFrameReader.scala:308)
+[2021-11-22 13:16:55,019] {subprocess.py:89} INFO - 	at scala.Option.getOrElse(Option.scala:189)
+[2021-11-22 13:16:55,020] {subprocess.py:89} INFO - 	at org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:308)
+[2021-11-22 13:16:55,021] {subprocess.py:89} INFO - 	at org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:226)
+[2021-11-22 13:16:55,022] {subprocess.py:89} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2021-11-22 13:16:55,023] {subprocess.py:89} INFO - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[2021-11-22 13:16:55,024] {subprocess.py:89} INFO - 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2021-11-22 13:16:55,025] {subprocess.py:89} INFO - 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+[2021-11-22 13:16:55,026] {subprocess.py:89} INFO - 	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2021-11-22 13:16:55,027] {subprocess.py:89} INFO - 	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+[2021-11-22 13:16:55,028] {subprocess.py:89} INFO - 	at py4j.Gateway.invoke(Gateway.java:282)
+[2021-11-22 13:16:55,029] {subprocess.py:89} INFO - 	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2021-11-22 13:16:55,030] {subprocess.py:89} INFO - 	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2021-11-22 13:16:55,031] {subprocess.py:89} INFO - 	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+[2021-11-22 13:16:55,032] {subprocess.py:89} INFO - 	at java.base/java.lang.Thread.run(Thread.java:829)
+[2021-11-22 13:16:55,033] {subprocess.py:89} INFO - 
+[2021-11-22 13:16:55,034] {subprocess.py:89} INFO - 
+[2021-11-22 13:16:55,034] {subprocess.py:89} INFO - ** END NESTED EXCEPTION **
+[2021-11-22 13:16:55,035] {subprocess.py:89} INFO - 
+[2021-11-22 13:16:55,036] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:00,549] {subprocess.py:89} INFO - [Stage 0:>                                                          (0 + 1) / 1]Mon Nov 22 13:17:00 UTC 2021 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+[2021-11-22 13:17:00,912] {subprocess.py:89} INFO - Mon Nov 22 13:17:00 UTC 2021 WARN: Caught while disconnecting...
+[2021-11-22 13:17:00,914] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:00,916] {subprocess.py:89} INFO - EXCEPTION STACK TRACE:
+[2021-11-22 13:17:00,917] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:00,918] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:00,919] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:00,920] {subprocess.py:89} INFO - ** BEGIN NESTED EXCEPTION **
+[2021-11-22 13:17:00,922] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:00,923] {subprocess.py:89} INFO - javax.net.ssl.SSLException
+[2021-11-22 13:17:00,925] {subprocess.py:89} INFO - MESSAGE: closing inbound before receiving peer's close_notify
+[2021-11-22 13:17:00,926] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:00,927] {subprocess.py:89} INFO - STACKTRACE:
+[2021-11-22 13:17:00,928] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:00,930] {subprocess.py:89} INFO - javax.net.ssl.SSLException: closing inbound before receiving peer's close_notify
+[2021-11-22 13:17:00,932] {subprocess.py:89} INFO - 	at java.base/sun.security.ssl.SSLSocketImpl.shutdownInput(SSLSocketImpl.java:763)
+[2021-11-22 13:17:00,934] {subprocess.py:89} INFO - 	at java.base/sun.security.ssl.SSLSocketImpl.shutdownInput(SSLSocketImpl.java:742)
+[2021-11-22 13:17:00,935] {subprocess.py:89} INFO - 	at com.mysql.cj.protocol.a.NativeProtocol.quit(NativeProtocol.java:1313)
+[2021-11-22 13:17:00,937] {subprocess.py:89} INFO - 	at com.mysql.cj.NativeSession.quit(NativeSession.java:182)
+[2021-11-22 13:17:00,939] {subprocess.py:89} INFO - 	at com.mysql.cj.jdbc.ConnectionImpl.realClose(ConnectionImpl.java:1743)
+[2021-11-22 13:17:00,940] {subprocess.py:89} INFO - 	at com.mysql.cj.jdbc.ConnectionImpl.close(ConnectionImpl.java:717)
+[2021-11-22 13:17:00,942] {subprocess.py:89} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.JDBCRDD.close$1(JDBCRDD.scala:259)
+[2021-11-22 13:17:00,943] {subprocess.py:89} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.JDBCRDD.$anonfun$compute$8(JDBCRDD.scala:308)
+[2021-11-22 13:17:00,944] {subprocess.py:89} INFO - 	at org.apache.spark.util.CompletionIterator$$anon$1.completion(CompletionIterator.scala:47)
+[2021-11-22 13:17:00,945] {subprocess.py:89} INFO - 	at org.apache.spark.util.CompletionIterator.hasNext(CompletionIterator.scala:36)
+[2021-11-22 13:17:00,947] {subprocess.py:89} INFO - 	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+[2021-11-22 13:17:00,948] {subprocess.py:89} INFO - 	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+[2021-11-22 13:17:00,950] {subprocess.py:89} INFO - 	at org.apache.spark.sql.execution.WholeStageCodegenExec$$anon$1.hasNext(WholeStageCodegenExec.scala:755)
+[2021-11-22 13:17:00,952] {subprocess.py:89} INFO - 	at org.apache.spark.sql.execution.SparkPlan.$anonfun$getByteArrayRdd$1(SparkPlan.scala:345)
+[2021-11-22 13:17:00,956] {subprocess.py:89} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2(RDD.scala:898)
+[2021-11-22 13:17:00,958] {subprocess.py:89} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2$adapted(RDD.scala:898)
+[2021-11-22 13:17:00,959] {subprocess.py:89} INFO - 	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+[2021-11-22 13:17:00,961] {subprocess.py:89} INFO - 	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+[2021-11-22 13:17:00,962] {subprocess.py:89} INFO - 	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+[2021-11-22 13:17:00,964] {subprocess.py:89} INFO - 	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:90)
+[2021-11-22 13:17:00,965] {subprocess.py:89} INFO - 	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+[2021-11-22 13:17:00,966] {subprocess.py:89} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:497)
+[2021-11-22 13:17:00,968] {subprocess.py:89} INFO - 	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1439)
+[2021-11-22 13:17:00,969] {subprocess.py:89} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:500)
+[2021-11-22 13:17:00,972] {subprocess.py:89} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+[2021-11-22 13:17:00,975] {subprocess.py:89} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+[2021-11-22 13:17:00,985] {subprocess.py:89} INFO - 	at java.base/java.lang.Thread.run(Thread.java:829)
+[2021-11-22 13:17:00,990] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:00,992] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:00,995] {subprocess.py:89} INFO - ** END NESTED EXCEPTION **
+[2021-11-22 13:17:01,019] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:01,022] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:02,830] {subprocess.py:89} INFO -                                                                                 Mon Nov 22 13:17:02 UTC 2021 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+[2021-11-22 13:17:02,886] {subprocess.py:89} INFO - Mon Nov 22 13:17:02 UTC 2021 WARN: Caught while disconnecting...
+[2021-11-22 13:17:02,887] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:02,888] {subprocess.py:89} INFO - EXCEPTION STACK TRACE:
+[2021-11-22 13:17:02,889] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:02,891] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:02,891] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:02,892] {subprocess.py:89} INFO - ** BEGIN NESTED EXCEPTION **
+[2021-11-22 13:17:02,893] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:02,894] {subprocess.py:89} INFO - javax.net.ssl.SSLException
+[2021-11-22 13:17:02,895] {subprocess.py:89} INFO - MESSAGE: closing inbound before receiving peer's close_notify
+[2021-11-22 13:17:02,896] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:02,897] {subprocess.py:89} INFO - STACKTRACE:
+[2021-11-22 13:17:02,898] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:02,899] {subprocess.py:89} INFO - javax.net.ssl.SSLException: closing inbound before receiving peer's close_notify
+[2021-11-22 13:17:02,900] {subprocess.py:89} INFO - 	at java.base/sun.security.ssl.SSLSocketImpl.shutdownInput(SSLSocketImpl.java:763)
+[2021-11-22 13:17:02,901] {subprocess.py:89} INFO - 	at java.base/sun.security.ssl.SSLSocketImpl.shutdownInput(SSLSocketImpl.java:742)
+[2021-11-22 13:17:02,903] {subprocess.py:89} INFO - 	at com.mysql.cj.protocol.a.NativeProtocol.quit(NativeProtocol.java:1313)
+[2021-11-22 13:17:02,903] {subprocess.py:89} INFO - 	at com.mysql.cj.NativeSession.quit(NativeSession.java:182)
+[2021-11-22 13:17:02,905] {subprocess.py:89} INFO - 	at com.mysql.cj.jdbc.ConnectionImpl.realClose(ConnectionImpl.java:1743)
+[2021-11-22 13:17:02,906] {subprocess.py:89} INFO - 	at com.mysql.cj.jdbc.ConnectionImpl.close(ConnectionImpl.java:717)
+[2021-11-22 13:17:02,907] {subprocess.py:89} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.JDBCRDD.close$1(JDBCRDD.scala:259)
+[2021-11-22 13:17:02,908] {subprocess.py:89} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.JDBCRDD.$anonfun$compute$8(JDBCRDD.scala:308)
+[2021-11-22 13:17:02,909] {subprocess.py:89} INFO - 	at org.apache.spark.util.CompletionIterator$$anon$1.completion(CompletionIterator.scala:47)
+[2021-11-22 13:17:02,910] {subprocess.py:89} INFO - 	at org.apache.spark.util.CompletionIterator.hasNext(CompletionIterator.scala:36)
+[2021-11-22 13:17:02,911] {subprocess.py:89} INFO - 	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.agg_doAggregateWithoutKey_0$(Unknown Source)
+[2021-11-22 13:17:02,911] {subprocess.py:89} INFO - 	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+[2021-11-22 13:17:02,912] {subprocess.py:89} INFO - 	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+[2021-11-22 13:17:02,913] {subprocess.py:89} INFO - 	at org.apache.spark.sql.execution.WholeStageCodegenExec$$anon$1.hasNext(WholeStageCodegenExec.scala:755)
+[2021-11-22 13:17:02,914] {subprocess.py:89} INFO - 	at scala.collection.Iterator$$anon$10.hasNext(Iterator.scala:458)
+[2021-11-22 13:17:02,915] {subprocess.py:89} INFO - 	at org.apache.spark.shuffle.sort.BypassMergeSortShuffleWriter.write(BypassMergeSortShuffleWriter.java:132)
+[2021-11-22 13:17:02,916] {subprocess.py:89} INFO - 	at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+[2021-11-22 13:17:02,917] {subprocess.py:89} INFO - 	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:99)
+[2021-11-22 13:17:02,918] {subprocess.py:89} INFO - 	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:52)
+[2021-11-22 13:17:02,918] {subprocess.py:89} INFO - 	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+[2021-11-22 13:17:02,921] {subprocess.py:89} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:497)
+[2021-11-22 13:17:02,922] {subprocess.py:89} INFO - 	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1439)
+[2021-11-22 13:17:02,923] {subprocess.py:89} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:500)
+[2021-11-22 13:17:02,924] {subprocess.py:89} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+[2021-11-22 13:17:02,926] {subprocess.py:89} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+[2021-11-22 13:17:02,927] {subprocess.py:89} INFO - 	at java.base/java.lang.Thread.run(Thread.java:829)
+[2021-11-22 13:17:02,928] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:02,929] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:02,931] {subprocess.py:89} INFO - ** END NESTED EXCEPTION **
+[2021-11-22 13:17:02,932] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:02,932] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:03,270] {subprocess.py:89} INFO - Mon Nov 22 13:17:03 UTC 2021 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+[2021-11-22 13:17:03,387] {subprocess.py:89} INFO - Mon Nov 22 13:17:03 UTC 2021 WARN: Caught while disconnecting...
+[2021-11-22 13:17:03,390] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:03,392] {subprocess.py:89} INFO - EXCEPTION STACK TRACE:
+[2021-11-22 13:17:03,394] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:03,395] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:03,396] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:03,398] {subprocess.py:89} INFO - ** BEGIN NESTED EXCEPTION **
+[2021-11-22 13:17:03,399] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:03,400] {subprocess.py:89} INFO - javax.net.ssl.SSLException
+[2021-11-22 13:17:03,401] {subprocess.py:89} INFO - MESSAGE: closing inbound before receiving peer's close_notify
+[2021-11-22 13:17:03,402] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:03,403] {subprocess.py:89} INFO - STACKTRACE:
+[2021-11-22 13:17:03,404] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:03,405] {subprocess.py:89} INFO - javax.net.ssl.SSLException: closing inbound before receiving peer's close_notify
+[2021-11-22 13:17:03,406] {subprocess.py:89} INFO - 	at java.base/sun.security.ssl.SSLSocketImpl.shutdownInput(SSLSocketImpl.java:763)
+[2021-11-22 13:17:03,408] {subprocess.py:89} INFO - 	at java.base/sun.security.ssl.SSLSocketImpl.shutdownInput(SSLSocketImpl.java:742)
+[2021-11-22 13:17:03,409] {subprocess.py:89} INFO - 	at com.mysql.cj.protocol.a.NativeProtocol.quit(NativeProtocol.java:1313)
+[2021-11-22 13:17:03,410] {subprocess.py:89} INFO - 	at com.mysql.cj.NativeSession.quit(NativeSession.java:182)
+[2021-11-22 13:17:03,411] {subprocess.py:89} INFO - 	at com.mysql.cj.jdbc.ConnectionImpl.realClose(ConnectionImpl.java:1743)
+[2021-11-22 13:17:03,412] {subprocess.py:89} INFO - 	at com.mysql.cj.jdbc.ConnectionImpl.close(ConnectionImpl.java:717)
+[2021-11-22 13:17:03,413] {subprocess.py:89} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.JDBCRDD.close$1(JDBCRDD.scala:259)
+[2021-11-22 13:17:03,414] {subprocess.py:89} INFO - 	at org.apache.spark.sql.execution.datasources.jdbc.JDBCRDD.$anonfun$compute$8(JDBCRDD.scala:308)
+[2021-11-22 13:17:03,415] {subprocess.py:89} INFO - 	at org.apache.spark.util.CompletionIterator$$anon$1.completion(CompletionIterator.scala:47)
+[2021-11-22 13:17:03,417] {subprocess.py:89} INFO - 	at org.apache.spark.util.CompletionIterator.hasNext(CompletionIterator.scala:36)
+[2021-11-22 13:17:03,418] {subprocess.py:89} INFO - 	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+[2021-11-22 13:17:03,419] {subprocess.py:89} INFO - 	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+[2021-11-22 13:17:03,421] {subprocess.py:89} INFO - 	at org.apache.spark.sql.execution.WholeStageCodegenExec$$anon$1.hasNext(WholeStageCodegenExec.scala:755)
+[2021-11-22 13:17:03,423] {subprocess.py:89} INFO - 	at org.apache.spark.sql.execution.SparkPlan.$anonfun$getByteArrayRdd$1(SparkPlan.scala:345)
+[2021-11-22 13:17:03,425] {subprocess.py:89} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2(RDD.scala:898)
+[2021-11-22 13:17:03,426] {subprocess.py:89} INFO - 	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2$adapted(RDD.scala:898)
+[2021-11-22 13:17:03,427] {subprocess.py:89} INFO - 	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+[2021-11-22 13:17:03,428] {subprocess.py:89} INFO - 	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:373)
+[2021-11-22 13:17:03,429] {subprocess.py:89} INFO - 	at org.apache.spark.rdd.RDD.iterator(RDD.scala:337)
+[2021-11-22 13:17:03,431] {subprocess.py:89} INFO - 	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:90)
+[2021-11-22 13:17:03,431] {subprocess.py:89} INFO - 	at org.apache.spark.scheduler.Task.run(Task.scala:131)
+[2021-11-22 13:17:03,432] {subprocess.py:89} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$3(Executor.scala:497)
+[2021-11-22 13:17:03,434] {subprocess.py:89} INFO - 	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:1439)
+[2021-11-22 13:17:03,438] {subprocess.py:89} INFO - 	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:500)
+[2021-11-22 13:17:03,441] {subprocess.py:89} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+[2021-11-22 13:17:03,442] {subprocess.py:89} INFO - 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+[2021-11-22 13:17:03,444] {subprocess.py:89} INFO - 	at java.base/java.lang.Thread.run(Thread.java:829)
+[2021-11-22 13:17:03,445] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:03,447] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:03,448] {subprocess.py:89} INFO - ** END NESTED EXCEPTION **
+[2021-11-22 13:17:03,449] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:03,451] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:07,016] {subprocess.py:89} INFO - /home/***/.local/lib/python3.7/site-packages/snowflake/connector/options.py:97: UserWarning: You have an incompatible version of 'pyarrow' installed (4.0.1), please install a version that adheres to: 'pyarrow<5.1.0,>=5.0.0; extra == "pandas"'
+[2021-11-22 13:17:07,020] {subprocess.py:89} INFO -   _expected_pyarrow_version,
+[2021-11-22 13:17:07,026] {subprocess.py:89} INFO - ERROR:root:Exception while sending command.
+[2021-11-22 13:17:07,030] {subprocess.py:89} INFO - Traceback (most recent call last):
+[2021-11-22 13:17:07,034] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/py4j/java_gateway.py", line 1207, in send_command
+[2021-11-22 13:17:07,036] {subprocess.py:89} INFO -     raise Py4JNetworkError("Answer from Java side is empty")
+[2021-11-22 13:17:07,040] {subprocess.py:89} INFO - py4j.protocol.Py4JNetworkError: Answer from Java side is empty
+[2021-11-22 13:17:07,047] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:07,050] {subprocess.py:89} INFO - During handling of the above exception, another exception occurred:
+[2021-11-22 13:17:07,054] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:07,058] {subprocess.py:89} INFO - Traceback (most recent call last):
+[2021-11-22 13:17:07,062] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/py4j/java_gateway.py", line 1033, in send_command
+[2021-11-22 13:17:07,066] {subprocess.py:89} INFO -     response = connection.send_command(command)
+[2021-11-22 13:17:07,072] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/py4j/java_gateway.py", line 1212, in send_command
+[2021-11-22 13:17:07,078] {subprocess.py:89} INFO -     "Error while receiving", e, proto.ERROR_ON_RECEIVE)
+[2021-11-22 13:17:07,079] {subprocess.py:89} INFO - py4j.protocol.Py4JNetworkError: Error while receiving
+[2021-11-22 13:17:07,082] {subprocess.py:89} INFO - uploading entity: USERS
+[2021-11-22 13:17:07,086] {subprocess.py:89} INFO - new:
+[2021-11-22 13:17:07,089] {subprocess.py:89} INFO - +---+-------+---+--------------------+-------------------+----------+
+[2021-11-22 13:17:07,094] {subprocess.py:89} INFO - | id|   name|age|             address|         created_at|updated_at|
+[2021-11-22 13:17:07,101] {subprocess.py:89} INFO - +---+-------+---+--------------------+-------------------+----------+
+[2021-11-22 13:17:07,106] {subprocess.py:89} INFO - |  1|michael| 23| London st square 28|2021-11-22 13:06:45|      null|
+[2021-11-22 13:17:07,109] {subprocess.py:89} INFO - |  2|   john| 44|Madrid ST blabla 232|2021-11-22 13:06:45|      null|
+[2021-11-22 13:17:07,112] {subprocess.py:89} INFO - |  3|   raul| 65|        Tokyo 2NW343|2021-11-22 13:06:45|      null|
+[2021-11-22 13:17:07,120] {subprocess.py:89} INFO - +---+-------+---+--------------------+-------------------+----------+
+[2021-11-22 13:17:07,123] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:07,125] {subprocess.py:89} INFO - uploading to s3:
+[2021-11-22 13:17:07,129] {subprocess.py:89} INFO - uploading entity: ORDERS
+[2021-11-22 13:17:07,131] {subprocess.py:89} INFO - Traceback (most recent call last):
+[2021-11-22 13:17:07,135] {subprocess.py:89} INFO -   File "/opt/***/elt/user-orders/extract-load/mysql_to_s3.py", line 83, in <module>
+[2021-11-22 13:17:07,137] {subprocess.py:89} INFO -     .option("password", oltp_password)\
+[2021-11-22 13:17:07,138] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/pyspark/sql/readwriter.py", line 210, in load
+[2021-11-22 13:17:07,145] {subprocess.py:89} INFO -     return self._df(self._jreader.load())
+[2021-11-22 13:17:07,146] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/py4j/java_gateway.py", line 1305, in __call__
+[2021-11-22 13:17:07,148] {subprocess.py:89} INFO -     answer, self.gateway_client, self.target_id, self.name)
+[2021-11-22 13:17:07,151] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/pyspark/sql/utils.py", line 111, in deco
+[2021-11-22 13:17:07,152] {subprocess.py:89} INFO -     return f(*a, **kw)
+[2021-11-22 13:17:07,158] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/py4j/protocol.py", line 336, in get_return_value
+[2021-11-22 13:17:07,161] {subprocess.py:89} INFO -     format(target_id, ".", name))
+[2021-11-22 13:17:07,163] {subprocess.py:89} INFO - py4j.protocol.Py4JError: An error occurred while calling o64.load
+[2021-11-22 13:17:07,213] {subprocess.py:89} INFO - ERROR:py4j.java_gateway:An error occurred while trying to connect to the Java server (127.0.0.1:37991)
+[2021-11-22 13:17:07,216] {subprocess.py:89} INFO - Traceback (most recent call last):
+[2021-11-22 13:17:07,221] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/py4j/java_gateway.py", line 977, in _get_connection
+[2021-11-22 13:17:07,223] {subprocess.py:89} INFO -     connection = self.deque.pop()
+[2021-11-22 13:17:07,225] {subprocess.py:89} INFO - IndexError: pop from an empty deque
+[2021-11-22 13:17:07,229] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:07,232] {subprocess.py:89} INFO - During handling of the above exception, another exception occurred:
+[2021-11-22 13:17:07,236] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:07,239] {subprocess.py:89} INFO - Traceback (most recent call last):
+[2021-11-22 13:17:07,245] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/py4j/java_gateway.py", line 1115, in start
+[2021-11-22 13:17:07,252] {subprocess.py:89} INFO -     self.socket.connect((self.address, self.port))
+[2021-11-22 13:17:07,255] {subprocess.py:89} INFO - ConnectionRefusedError: [Errno 111] Connection refused
+[2021-11-22 13:17:07,259] {subprocess.py:89} INFO - ERROR:py4j.java_gateway:An error occurred while trying to connect to the Java server (127.0.0.1:37991)
+[2021-11-22 13:17:07,261] {subprocess.py:89} INFO - Traceback (most recent call last):
+[2021-11-22 13:17:07,264] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/py4j/java_gateway.py", line 977, in _get_connection
+[2021-11-22 13:17:07,267] {subprocess.py:89} INFO -     connection = self.deque.pop()
+[2021-11-22 13:17:07,270] {subprocess.py:89} INFO - IndexError: pop from an empty deque
+[2021-11-22 13:17:07,274] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:07,278] {subprocess.py:89} INFO - During handling of the above exception, another exception occurred:
+[2021-11-22 13:17:07,281] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:07,283] {subprocess.py:89} INFO - Traceback (most recent call last):
+[2021-11-22 13:17:07,289] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/py4j/java_gateway.py", line 1115, in start
+[2021-11-22 13:17:07,292] {subprocess.py:89} INFO -     self.socket.connect((self.address, self.port))
+[2021-11-22 13:17:07,295] {subprocess.py:89} INFO - ConnectionRefusedError: [Errno 111] Connection refused
+[2021-11-22 13:17:07,299] {subprocess.py:89} INFO - ERROR:py4j.java_gateway:An error occurred while trying to connect to the Java server (127.0.0.1:37991)
+[2021-11-22 13:17:07,302] {subprocess.py:89} INFO - Traceback (most recent call last):
+[2021-11-22 13:17:07,304] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/py4j/java_gateway.py", line 977, in _get_connection
+[2021-11-22 13:17:07,307] {subprocess.py:89} INFO -     connection = self.deque.pop()
+[2021-11-22 13:17:07,310] {subprocess.py:89} INFO - IndexError: pop from an empty deque
+[2021-11-22 13:17:07,315] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:07,320] {subprocess.py:89} INFO - During handling of the above exception, another exception occurred:
+[2021-11-22 13:17:07,325] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:07,328] {subprocess.py:89} INFO - Traceback (most recent call last):
+[2021-11-22 13:17:07,331] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/py4j/java_gateway.py", line 1115, in start
+[2021-11-22 13:17:07,333] {subprocess.py:89} INFO -     self.socket.connect((self.address, self.port))
+[2021-11-22 13:17:07,336] {subprocess.py:89} INFO - ConnectionRefusedError: [Errno 111] Connection refused
+[2021-11-22 13:17:07,338] {subprocess.py:89} INFO - ERROR:py4j.java_gateway:An error occurred while trying to connect to the Java server (127.0.0.1:37991)
+[2021-11-22 13:17:07,341] {subprocess.py:89} INFO - Traceback (most recent call last):
+[2021-11-22 13:17:07,343] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/py4j/java_gateway.py", line 977, in _get_connection
+[2021-11-22 13:17:07,345] {subprocess.py:89} INFO -     connection = self.deque.pop()
+[2021-11-22 13:17:07,346] {subprocess.py:89} INFO - IndexError: pop from an empty deque
+[2021-11-22 13:17:07,349] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:07,350] {subprocess.py:89} INFO - During handling of the above exception, another exception occurred:
+[2021-11-22 13:17:07,352] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:07,352] {subprocess.py:89} INFO - Traceback (most recent call last):
+[2021-11-22 13:17:07,354] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/py4j/java_gateway.py", line 1115, in start
+[2021-11-22 13:17:07,355] {subprocess.py:89} INFO -     self.socket.connect((self.address, self.port))
+[2021-11-22 13:17:07,358] {subprocess.py:89} INFO - ConnectionRefusedError: [Errno 111] Connection refused
+[2021-11-22 13:17:07,399] {subprocess.py:89} INFO - ERROR:py4j.java_gateway:An error occurred while trying to connect to the Java server (127.0.0.1:37991)
+[2021-11-22 13:17:07,401] {subprocess.py:89} INFO - Traceback (most recent call last):
+[2021-11-22 13:17:07,402] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/py4j/java_gateway.py", line 977, in _get_connection
+[2021-11-22 13:17:07,405] {subprocess.py:89} INFO -     connection = self.deque.pop()
+[2021-11-22 13:17:07,406] {subprocess.py:89} INFO - IndexError: pop from an empty deque
+[2021-11-22 13:17:07,407] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:07,409] {subprocess.py:89} INFO - During handling of the above exception, another exception occurred:
+[2021-11-22 13:17:07,411] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:07,412] {subprocess.py:89} INFO - Traceback (most recent call last):
+[2021-11-22 13:17:07,413] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/py4j/java_gateway.py", line 1115, in start
+[2021-11-22 13:17:07,415] {subprocess.py:89} INFO -     self.socket.connect((self.address, self.port))
+[2021-11-22 13:17:07,416] {subprocess.py:89} INFO - ConnectionRefusedError: [Errno 111] Connection refused
+[2021-11-22 13:17:07,417] {subprocess.py:89} INFO - ERROR:py4j.java_gateway:An error occurred while trying to connect to the Java server (127.0.0.1:37991)
+[2021-11-22 13:17:07,419] {subprocess.py:89} INFO - Traceback (most recent call last):
+[2021-11-22 13:17:07,422] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/py4j/java_gateway.py", line 977, in _get_connection
+[2021-11-22 13:17:07,424] {subprocess.py:89} INFO -     connection = self.deque.pop()
+[2021-11-22 13:17:07,426] {subprocess.py:89} INFO - IndexError: pop from an empty deque
+[2021-11-22 13:17:07,431] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:07,434] {subprocess.py:89} INFO - During handling of the above exception, another exception occurred:
+[2021-11-22 13:17:07,436] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:07,439] {subprocess.py:89} INFO - Traceback (most recent call last):
+[2021-11-22 13:17:07,442] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/py4j/java_gateway.py", line 1115, in start
+[2021-11-22 13:17:07,446] {subprocess.py:89} INFO -     self.socket.connect((self.address, self.port))
+[2021-11-22 13:17:07,455] {subprocess.py:89} INFO - ConnectionRefusedError: [Errno 111] Connection refused
+[2021-11-22 13:17:07,457] {subprocess.py:89} INFO - ERROR:py4j.java_gateway:An error occurred while trying to connect to the Java server (127.0.0.1:37991)
+[2021-11-22 13:17:07,458] {subprocess.py:89} INFO - Traceback (most recent call last):
+[2021-11-22 13:17:07,459] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/py4j/java_gateway.py", line 977, in _get_connection
+[2021-11-22 13:17:07,460] {subprocess.py:89} INFO -     connection = self.deque.pop()
+[2021-11-22 13:17:07,462] {subprocess.py:89} INFO - IndexError: pop from an empty deque
+[2021-11-22 13:17:07,463] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:07,466] {subprocess.py:89} INFO - During handling of the above exception, another exception occurred:
+[2021-11-22 13:17:07,467] {subprocess.py:89} INFO - 
+[2021-11-22 13:17:07,469] {subprocess.py:89} INFO - Traceback (most recent call last):
+[2021-11-22 13:17:07,470] {subprocess.py:89} INFO -   File "/home/***/.local/lib/python3.7/site-packages/py4j/java_gateway.py", line 1115, in start
+[2021-11-22 13:17:07,471] {subprocess.py:89} INFO -     self.socket.connect((self.address, self.port))
+[2021-11-22 13:17:07,472] {subprocess.py:89} INFO - ConnectionRefusedError: [Errno 111] Connection refused
+[2021-11-22 13:17:07,690] {subprocess.py:93} INFO - Command exited with return code 1
+[2021-11-22 13:17:07,713] {taskinstance.py:1703} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1332, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1458, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1514, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 188, in execute
+    f'Bash command failed. The command returned a non-zero exit code {result.exit_code}.'
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2021-11-22 13:17:07,730] {taskinstance.py:1280} INFO - Marking task as FAILED. dag_id=ELT-python-snowflake, task_id=Extract, execution_date=20211122T131639, start_date=20211122T131639, end_date=20211122T131707
+[2021-11-22 13:17:07,755] {standard_task_runner.py:91} ERROR - Failed to execute job 65 for task Extract
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/task/task_runner/standard_task_runner.py", line 85, in _start_by_fork
+    args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/cli_parser.py", line 48, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/cli.py", line 92, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 292, in task_run
+    _run_task_by_selected_method(args, dag, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 107, in _run_task_by_selected_method
+    _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 184, in _run_raw_task
+    error_file=args.error_file,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 70, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1332, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1458, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1514, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 188, in execute
+    f'Bash command failed. The command returned a non-zero exit code {result.exit_code}.'
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2021-11-22 13:17:07,810] {local_task_job.py:154} INFO - Task exited with return code 1
+[2021-11-22 13:17:07,886] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check
