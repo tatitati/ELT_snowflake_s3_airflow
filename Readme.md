@@ -1,9 +1,3 @@
-# SETUP:
-```bash
-poetry install
-```
-
-
 # ELT: mysql -> s3 -> snowflake -> datamodel
 
 ## Data model
