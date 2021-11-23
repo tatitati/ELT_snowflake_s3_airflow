@@ -5,9 +5,6 @@
 ![datamodel](doc/datamodel.png)
 
 
-
-
-
 ## OPTION 1: using python scripts transformations
 ![elt](doc/elt.png)
 
