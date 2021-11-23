@@ -1,3 +1,4 @@
 elt/pipeline.conf
 logs
 .idea
+*.pyc
