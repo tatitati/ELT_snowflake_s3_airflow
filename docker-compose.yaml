@@ -281,5 +281,7 @@ services:
     volumes:
       - ./elt/dump.sql:/docker-entrypoint-initdb.d/dump.sql
 
+  # add datadog to audit the ELT
+
 volumes:
   postgres-db-volume:
