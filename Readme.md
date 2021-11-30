@@ -2,6 +2,8 @@
 
 ## Data model
 ![datamodel](doc/datamodel.png)
+
+## Audit Data model
 ![audit-datamodel](doc/audit-data-model.png)
 
 
