@@ -2,7 +2,7 @@
 
 ## Data model
 ![datamodel](doc/datamodel.png)
-![audit-datamodel](doc/audit-data-model.png
+![audit-datamodel](doc/audit-data-model.png)
 
 
 ## OPTION 1: using python scripts transformations
