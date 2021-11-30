@@ -43,8 +43,7 @@ tables = ['ORDERS', 'USERS']
 
 for table in tables:
     cur.execute(f'create table if not exists "MYDBT"."DE_SILVER"."{table}_PREVIOUS" like "MYDBT"."DE_SILVER"."{table}_CURRENT";') # create "current" table if needed
-    cur.execute(f'create table if not exists "MYDBT"."DE_SILVER"."{table}_DEDUP" like "MYDBT"."DE_SILVER"."{table}_CURRENT";')  # create "current" table if needed
-    cur.execute(f'truncate table if exists "MYDBT"."DE_SILVER"."{table}_DEDUP"')  # create "current" table if needed
+    cur.execute(f'create or replace table if not exists "MYDBT"."DE_SILVER"."{table}_DEDUP" like "MYDBT"."DE_SILVER"."{table}_CURRENT";')  # create "current" table if needed
 
     cur.execute(f"""insert into "MYDBT"."DE_SILVER"."{table}_DEDUP"
             select * from "MYDBT"."DE_SILVER"."{table}_CURRENT"

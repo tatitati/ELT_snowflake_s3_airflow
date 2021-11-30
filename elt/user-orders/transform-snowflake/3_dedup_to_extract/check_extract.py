@@ -9,12 +9,13 @@ from pyspark import SparkContext
 import configparser
 import datetime
 import os
+import sys
 import snowflake.connector
 from pyspark.sql.functions import col, lit
 from pyspark.sql.types import StructType, StructField, IntegerType, DateType, TimestampType, StringType
 from snowflake.connector import ProgrammingError
 
-jarPath='/opt/airflow/elt/jars'
+jarPath='/Users/tati/lab/de/pipeline-user-orders/jars'
 jars = [
     # spark-snowflake
     f'{jarPath}/spark-snowflake/snowflake-jdbc-3.13.10.jar',
@@ -25,7 +26,7 @@ context = SparkContext(master="local[*]", appName="readJSON")
 app = SparkSession.builder.appName("myapp").getOrCreate()
 
 parser = configparser.ConfigParser()
-parser.read("/opt/airflow/elt/pipeline.conf")
+parser.read("../../pipeline.conf")
 snowflake_username = parser.get("snowflake_credentials", "username")
 snowflake_password = parser.get("snowflake_credentials", "password")
 snowflake_account_name = parser.get("snowflake_credentials", "account_name")
@@ -40,48 +41,105 @@ snow_conn = snowflake.connector.connect(
 cur = snow_conn.cursor()
 
 
-# USERS_DEDUP -> USERS_EXTRACT
-cur.execute(f'truncate table if exists "MYDBT"."DE_SILVER"."USERS_EXTRACT_CAST"')
+# check dimension
+cur.execute(f"""        
+        create schema if not exists "MYDBT"."DATA_QUALITY"
+    """)
+cur.execute(f"""        
+        create table if not exists "MYDBT"."DATA_QUALITY"."DIM_TESTS"(
+            id number not null autoincrement primary key,
+            description varchar not null,
+            table_name varchar not null,
+            test_sql varchar not null
+         )                  
+    """)
 cur.execute(f"""
-         create or replace table "MYDBT"."DE_SILVER"."USERS_EXTRACT_CAST"(
-            id number not null,
-            name varchar not null,
-            address varchar not null,
-            age number not null,
-            created_at datetime not null,
-            updated_at datetime
-         ) as
-            select 
-                parquet_raw:id::number,
-                parquet_raw:name::varchar,
-                parquet_raw:address::varchar,
-                parquet_raw:age::number,
-                parquet_raw:created_at::datetime,
-                parquet_raw:updated_at::datetime
-            from 
-                "MYDBT"."DE_SILVER"."USERS_DEDUP";    
-        """)
+         create table if not exists "MYDBT"."DATA_QUALITY"."FACT_ERRORS"(
+            id number not null autoincrement primary key,
+            id_dim_tests number not null,
+            amount_records_failing number not null,
+            timestamp datetime not null default current_timestamp(),
+            
+            foreign key(id_dim_tests) references MYDBT.DATA_QUALITY.DIM_TESTS(id)            
+         )                  
+    """)
 
-# ORDERS_DEDUP -> ORDERS_EXTRACT
-cur.execute(f'truncate table if exists "MYDBT"."DE_SILVER"."ORDERS_EXTRACT_CAST"')
-cur.execute(f"""
-         create or replace table "MYDBT"."DE_SILVER"."ORDERS_EXTRACT_CAST"(
-            id number not null,
-            id_user number not null,
-            spent number not null,
-            status varchar not null,
-            created_at datetime not null,
-            updated_at datetime
-         ) as
-            select 
-                parquet_raw:id::number,
-                parquet_raw:id_user::number,
-                parquet_raw:spent::number,
-                parquet_raw:status::varchar,
-                parquet_raw:created_at::datetime,
-                parquet_raw:updated_at::datetime
-            from 
-                "MYDBT"."DE_SILVER"."ORDERS_DEDUP";    
-        """)
+query = f"""
+ insert overwrite into "MYDBT"."DATA_QUALITY"."DIM_TESTS"(id, description, table_name, test_sql)
+    values
+        (   
+            1,
+            'check USERS_EXTRACT_CAST table is not empty', 
+            '"MYDBT"."DE_SILVER"."USERS_EXTRACT_CAST"', 
+            'select count(*) 
+                from "MYDBT"."DE_SILVER"."USERS_EXTRACT_CAST"'
+        ),            
+        (
+            2,
+            'check USERS_EXTRACT_CAST age is between 0 and 100',
+            '"MYDBT"."DE_SILVER"."USERS_EXTRACT_CAST"',
+            'select *
+                from "MYDBT"."DE_SILVER"."USERS_EXTRACT_CAST" 
+                where age < 0 or age > 100;'
+        ),            
+        (
+            3,
+            'check USERS_EXTRACT_CAST name is not empty',
+            '"MYDBT"."DE_SILVER"."USERS_EXTRACT_CAST"',
+            'select *
+                from "MYDBT"."DE_SILVER"."USERS_EXTRACT_CAST" 
+                where 
+                name is null or name = \''\'';'
+        ),            
+        (
+            4,
+            'check ORDERS_EXTRACT_CAST spent is not null or negative',
+            '"MYDBT"."DE_SILVER"."ORDERS_EXTRACT_CAST"',
+            'select *
+                from "MYDBT"."DE_SILVER"."ORDERS_EXTRACT_CAST" 
+                where 
+                spent = 0 or spent < 0;'
+        ),    
+        (
+            5,
+            'check ORDERS_EXTRACT_CAST status is valid',
+            '"MYDBT"."DE_SILVER"."ORDERS_EXTRACT_CAST"',
+            'select *
+                from "MYDBT"."DE_SILVER"."ORDERS_EXTRACT_CAST" 
+                where 
+                status not in (\''adsfasdf\'', \''adsfasd\'', \''aa\'')'
+        );                     
+        """
+cur.execute(query)
+
+tables = ['USERS_EXTRACT_CAST', 'ORDERS_EXTRACT_CAST']
+errors_found = False
+for table in tables:
+    # get tests for each table
+    cur.execute(f"""
+        select id, test_sql
+        from  "MYDBT"."DATA_QUALITY"."DIM_TESTS"
+        where table_name = '"MYDBT"."DE_SILVER"."{table}"'
+    """)
+    tests = cur.fetchall()
+
+    # run tests
+    for test in tests:
+        cur.execute(test[1])
+        result = cur.fetchall()
+
+        if len(result) != 0:
+            errors_found = True
+
+            # we want one entry per failed test, not per row not passing the test
+            cur.execute(f"""
+                insert into  "MYDBT"."DATA_QUALITY"."FACT_ERRORS"(id_dim_tests, amount_records_failing)
+                    values ({test[0]}, {len(result)})
+                """)
 
 cur.close()
+
+if errors_found == True:
+    sys.exit(1)
+else:
+    sys.exit(0)

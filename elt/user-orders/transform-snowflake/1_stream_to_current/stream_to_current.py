@@ -42,8 +42,7 @@ cur = snow_conn.cursor()
 tables = ['ORDERS', 'USERS']
 
 for table in tables:
-    cur.execute(f'truncate table if exists "MYDBT"."DE_SILVER"."{table}_CURRENT";')  # truncate "current" table if exists
-    cur.execute(f'create table if not exists "MYDBT"."DE_SILVER"."{table}_CURRENT" like "MYDBT"."DE_BRONZE"."{table}";') # create "current" table if needed
+    cur.execute(f'create or replace table if not exists "MYDBT"."DE_SILVER"."{table}_CURRENT" like "MYDBT"."DE_BRONZE"."{table}";') # create "current" table if needed
 
     current_sql = f"""
         insert into "MYDBT"."DE_SILVER"."{table}_CURRENT"(parquet_raw, md5, created_at, source, METADATA_ROW_NUMBER)

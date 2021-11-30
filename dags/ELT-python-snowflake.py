@@ -30,10 +30,18 @@ with DAG(dag_id='ELT-python-snowflake', schedule_interval=None, start_date=datet
         bash_command='python3 /opt/airflow/elt/user-orders/transform-snowflake/2_current_to_dedup/current_to_dedup.py',
     )
 
-    dedup_to_extractcast = BashOperator(
-        task_id='dedup_to_extractcast',
-        bash_command='python3 /opt/airflow/elt/user-orders/transform-snowflake/3_dedup_to_extract/dedup_to_extract.py',
-    )
+    with TaskGroup("dedup_to_extract") as dedup_to_extract:
+        dedup_to_extractcast = BashOperator(
+            task_id='dedup_to_extractcast',
+            bash_command='python3 /opt/airflow/elt/user-orders/transform-snowflake/3_dedup_to_extract/dedup_to_extract.py',
+        )
+
+        check_extract = BashOperator(
+            task_id='check_extract',
+            bash_command='python3 /opt/airflow/elt/user-orders/transform-snowflake/3_dedup_to_extract/check_to_extract.py',
+        )
+
+        dedup_to_extractcast >> check_extract
 
     with TaskGroup("data_model") as data_model_group:
 
@@ -55,7 +63,7 @@ with DAG(dag_id='ELT-python-snowflake', schedule_interval=None, start_date=datet
         [datamodel_dimuser, datamodel_dimstatus] >> datamodel_factorder
     
 
-mysql_to_s3 >> stream_to_current_group >> deltacurrent_to_dedup >> dedup_to_extractcast >> data_model_group
+mysql_to_s3 >> stream_to_current_group >> deltacurrent_to_dedup >> dedup_to_extract >> data_model_group
 
 if __name__ == "__main__":
     dag.cli()
